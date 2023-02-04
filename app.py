@@ -12,3 +12,5 @@ from phrase import Phrase
 if __name__ == "__main__":
     game = Game()
     phrase = Phrase()
+# print(phrase)
+# print(game)
