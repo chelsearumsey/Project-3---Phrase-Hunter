@@ -13,6 +13,7 @@ if __name__ == "__main__":
    
     game = Game()
     #phrase = Phrase()
-    
+    print(game.active_phrase)
+    print(game.active_phrase.phrase)
     
     

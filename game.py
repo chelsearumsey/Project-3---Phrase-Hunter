@@ -6,7 +6,7 @@ class Game():
     def __init__(self):
         self.missed = 0
         self.phrases = self.create_phrases()
-        self.active_phrase = None
+        self.active_phrase = self.get_random_phrase()
         self.guesses = [" "]
 
     def create_phrases(self): 
