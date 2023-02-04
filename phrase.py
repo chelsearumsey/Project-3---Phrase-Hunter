@@ -2,8 +2,7 @@
 class Phrase():
     
     def __init__(self, phrase):
-        self.phrase = phrase
-
+        self.phrase = phrase.lower()
 
     def __str__(self):
-        return self.phrase.lower()
+        return self.phrase
