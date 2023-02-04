@@ -9,12 +9,12 @@ class Game():
         self.active_phrase = None
         self.guesses = [" "]
 
-    def create_phrases(self):
-        random_phrase = [Phrase("Riddles in the dark"), Phrase("The wand chooses the wizard"), 
+    def create_phrases(self): 
+        phrases = [Phrase("Riddles in the dark"), Phrase("The wand chooses the wizard"), 
                         Phrase("The bog of eternal stench"), Phrase("Anybody want a peanut"), 
                         Phrase("You will be assimilated resistance is futile")]
-        phrase = random.choice(random_phrase)
-        return phrase
+        #phrase = random.choice(random_phrases)
+        return phrases
 
     
 
