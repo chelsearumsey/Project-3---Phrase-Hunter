@@ -65,6 +65,7 @@ Be our guest and take a guess! Enter a letter: """)
         if self.missed == 5:
             print("Too bad! You coulda been a contender!")
         else:
+            print(f'"{self.active_phrase}"')
             print('You won!!! "Heroes get remembered but legends never die."') 
         while True:  
             play_again = input("Would you like to guess another movie quote? (Enter 'yes' or 'no')  ").lower()
