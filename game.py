@@ -8,7 +8,7 @@ class Game():
         self.missed = 0
         self.phrases = self.create_phrases()
         self.active_phrase = self.get_random_phrase()
-        self.guesses = [" "]
+        self.guesses = [" ", ".", "?", "!"]
 
     def start(self):
         self.welcome()
@@ -20,14 +20,16 @@ class Game():
             self.guesses.append(self.user_guess)
             if not self.active_phrase.check_guess(self.user_guess):
                 while True:
-                    try:
-                        if self.user_guess not in list(string.ascii_lowercase):
-                            print("Oops! Make sure to enter a single letter only!")
-                    except ValueError:
-                        self.user_guess = input("Guess again!  ")
-                    else:
+                    #try:
+                    if self.user_guess not in list(string.ascii_lowercase):
+                        print("Oops! Make sure to enter a single letter only!")
                         break
-                self.missed += 1
+                    # except ValueError:
+                    #     self.user_guess = input("Guess again!  ")
+                    #     break
+                    else:
+                        self.missed += 1
+                        break
             else:
                 continue
         self.game_over()
@@ -45,9 +47,9 @@ class Game():
         ''')
 
     def create_phrases(self): 
-        phrases = [Phrase("Riddles in the dark"), Phrase("The wand chooses the wizard"), 
-                    Phrase("The bog of eternal stench"), Phrase("Anybody want a peanut"), 
-                    Phrase("Resistance is futile")]
+        phrases = [Phrase("Riddles in the dark"), Phrase("The wand chooses the wizard!"), 
+                    Phrase("The bog of eternal stench!"), Phrase("Anybody want a peanut?"), 
+                    Phrase("Resistance is futile.")]
         return phrases
     
     def get_random_phrase(self):
@@ -81,7 +83,7 @@ Be our guest and take a guess! Enter a letter: """)
         self.missed = 0
         self.phrases = self.create_phrases()
         self.active_phrase = self.get_random_phrase()
-        self.guesses = [" "]
+        self.guesses = [" ", ".", "?", "!"]
                 
 
      
