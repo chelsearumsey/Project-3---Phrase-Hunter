@@ -13,3 +13,10 @@ class Phrase():
                     print(f'{letter}', end=" ")
                 else:
                     print(f'_', end=" ")
+
+    def check_guess(self, guess):
+        self.guess = guess
+        if guess in self.phrase:
+            return True
+        else:
+            return False
