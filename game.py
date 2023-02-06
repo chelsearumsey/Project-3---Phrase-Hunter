@@ -29,7 +29,7 @@ class Game():
                 self.missed += 1
             else:
                 continue
-            
+        self.game_over()   
             
 
     def welcome(self):
@@ -56,5 +56,11 @@ class Game():
         return input("""
         
 Be our guest and take a guess! Enter a letter: """)
+
+    def game_over(self):
+        if self.missed == 5:
+            print("Too bad! You coulda been a contender!")
+        else:
+            print("You won!!! Heroes get remembered but legends never die.")
     
 
