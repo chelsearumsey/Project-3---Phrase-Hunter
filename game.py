@@ -1,31 +1,32 @@
-# Create your Game class logic in here.
+
 from phrase import Phrase
 import random
+import string
 
 class Game():
     def __init__(self):
         self.missed = 0
         self.phrases = self.create_phrases()
         self.active_phrase = self.get_random_phrase()
-        print(self.active_phrase)
         self.guesses = [" "]
-        print(self.guesses)
 
     def start(self):
         self.welcome()
         while self.missed < 5 and self.active_phrase.check_complete(self.guesses) == False:
-            print(self.active_phrase)
-            print(self.guesses)
             print(f"""Number missed: {self.missed}
             """)
             self.active_phrase.display(self.guesses)
-            # print(self.active_phrase.display(self.guesses))
             self.user_guess = self.get_guess()
-            # print(self.user_guess)
             self.guesses.append(self.user_guess)
-            #print(self.guesses.append(self.user_guess))
             if not self.active_phrase.check_guess(self.user_guess):
-                print(self.active_phrase.check_complete(self.user_guess))
+                while True:
+                    try:
+                        if self.user_guess not in list(string.ascii_lowercase):
+                            print("Oops! Make sure to enter a single letter only!")
+                    except ValueError:
+                        self.user_guess = input("Guess again!  ")
+                    else:
+                        break
                 self.missed += 1
             else:
                 continue
@@ -44,8 +45,8 @@ class Game():
 
     def create_phrases(self): 
         phrases = [Phrase("Riddles in the dark"), Phrase("The wand chooses the wizard"), 
-                        Phrase("The bog of eternal stench"), Phrase("Anybody want a peanut"), 
-                        Phrase("You will be assimilated resistance is futile")]
+                    Phrase("The bog of eternal stench"), Phrase("Anybody want a peanut"), 
+                    Phrase("You will be assimilated resistance is futile")]
         return phrases
     
     def get_random_phrase(self):

@@ -1,4 +1,4 @@
-# Create your Phrase class logic here.
+
 class Phrase():
     
     def __init__(self, phrase):
@@ -25,7 +25,6 @@ class Phrase():
     def check_complete(self, guesses):
         for letter in self.phrase:
             while letter not in guesses:
-                print(guesses)
                 return False
             continue
 
