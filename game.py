@@ -58,10 +58,23 @@ class Game():
         
 Be our guest and take a guess! Enter a letter: """)
 
-    def game_over(self):
-        if self.missed == 5:
-            print("Too bad! You coulda been a contender!")
-        else:
-            print("You won!!! Heroes get remembered but legends never die.")
+    def game_over(self): 
+        while True:
+    	    try:
+                play_again = input("Would you like to guess another movie quote? (Enter 'yes' or 'no')  ").lower()
+
+                if play_again == "yes": 
+                    self.start()    
+                    break
+                elif play_again =="no": 
+                    print("Thanks for playing! See you on the flip side!") 
+                    break
+                else:
+                    raise IndexError
+            except IndexError:
+                print("Please answer 'yes' or 'no'.  ")
+        
+            
+
     
 
