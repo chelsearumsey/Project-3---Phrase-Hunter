@@ -7,20 +7,29 @@ class Game():
         self.missed = 0
         self.phrases = self.create_phrases()
         self.active_phrase = self.get_random_phrase()
+        print(self.active_phrase)
         self.guesses = [" "]
+        print(self.guesses)
 
     def start(self):
         self.welcome()
-        while self.missed < 5:
+        while self.missed < 5 and self.active_phrase.check_complete(self.guesses) == False:
+            print(self.active_phrase)
+            print(self.guesses)
             print(f"""Number missed: {self.missed}
             """)
             self.active_phrase.display(self.guesses)
+            # print(self.active_phrase.display(self.guesses))
             self.user_guess = self.get_guess()
+            # print(self.user_guess)
             self.guesses.append(self.user_guess)
+            #print(self.guesses.append(self.user_guess))
             if not self.active_phrase.check_guess(self.user_guess):
+                print(self.active_phrase.check_complete(self.user_guess))
                 self.missed += 1
             else:
                 continue
+            
             
 
     def welcome(self):

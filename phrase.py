@@ -3,6 +3,7 @@ class Phrase():
     
     def __init__(self, phrase):
         self.phrase = phrase.lower()
+        
 
     def __str__(self):
         return self.phrase
@@ -20,3 +21,13 @@ class Phrase():
             return True
         else:
             return False
+
+    def check_complete(self, guesses):
+        for letter in self.phrase:
+            while letter not in guesses:
+                print(guesses)
+                return False
+            continue
+
+            
+
